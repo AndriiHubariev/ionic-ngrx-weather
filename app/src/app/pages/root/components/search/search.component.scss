@@ -1,0 +1,47 @@
+@import '../../../../mixins.scss'; 
+.search_container {
+    @include flex-column;
+    align-items: center;
+    margin: 10px;
+    ion-button {
+        height: 45px;
+        width: 95%;
+    }
+    .city_form {
+        @include flex-column;
+        width: 95%;
+        border-top: 1px solid rgb(66, 65, 65) ;
+        .search_btns {
+            display: flex;
+            justify-content: space-between;
+            ion-button {
+                width: 40%;
+            }
+        }
+        input {
+            font-family: 'Lemonada', cursive;
+            padding: 8px;
+            margin: 15px 0 10px 0;
+            color: rgb(236, 236, 236);
+            outline: none;
+            border-radius: 8px;
+            background-color: rgb(34, 36, 40);
+            border: none;
+            &::placeholder {
+                font-size: 11px;
+            }
+        }
+    }
+}
+.errors {
+    color:white;
+    width: 100%;
+    background-color: rgb(247, 100, 100);
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.spinner {
+    padding: 10px;
+}

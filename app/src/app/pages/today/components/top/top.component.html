@@ -1,0 +1,65 @@
+
+<div *ngIf="!weatherData" class="ion-padding custom-skeleton">
+  <ion-skeleton-text
+    animated
+    style="width: 60%; margin-bottom: 10px"
+  ></ion-skeleton-text>
+  <ion-skeleton-text
+    animated
+    style="width: 88%; margin-bottom: 10px"
+  ></ion-skeleton-text>
+  <ion-skeleton-text
+    animated
+    style="width: 88%; margin-bottom: 10px"
+  ></ion-skeleton-text>
+  <ion-skeleton-text
+    animated
+    style="width: 70%; margin-bottom: 10px"
+  ></ion-skeleton-text>
+  <ion-skeleton-text
+    animated
+    style="width: 100%; margin-bottom: 10px"
+  ></ion-skeleton-text>
+</div>
+<div *ngIf="weatherData" class="card_content">
+  <div class="card_info">
+    <div class="main-info">
+      <div class="city_temp">
+        {{ weatherData.temp | number: '1.0-0' }}&#176;
+      </div>
+      <div class="city_name">
+        {{ cityName }}
+        <app-dynamicIcon [weatherState]="weatherData.weather[0].main"></app-dynamicIcon>
+      </div>
+    </div>
+    <div class="second_info">
+      <div class="left">
+        <div class="pressure">PR {{ weatherData.pressure }}<small>-hPa</small></div>
+        <div class="humidity">
+          <i class="fas fa-tint"></i> {{ weatherData.humidity }}&#37;
+        </div>
+        <div class="wind">
+          <i class="fas fa-wind"></i>
+          {{ weatherData.wind_speed | number: '1.0-0' }}<small>-m/s</small>
+        </div>
+      </div>
+      <div class="right">
+        <div class="sunrize">
+          <i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-sun"></i>
+          {{ weatherData.sunrise | date:'HH:mm': 'UTC' }}
+        </div>
+        <div class="sunset">
+          <i class="fas fa-long-arrow-alt-down"></i><i class="fas fa-sun"></i>
+          {{ weatherData.sunset | date:'HH:mm': 'UTC' }}
+        </div>
+        <div class="uvi">UVI {{weatherData.uvi}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card_text">
+    <span>
+      <span>&bull;</span>
+      {{ weatherData.joke }}
+    </span>
+  </div>
+</div>

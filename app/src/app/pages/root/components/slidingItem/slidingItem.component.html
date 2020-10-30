@@ -1,0 +1,18 @@
+<ion-item-sliding #slidingItem *ngFor="let city of weatherData$ | async">
+  <ion-item [@slideCardAnim]  color="dark" (click)="showActionSheet(city.timezone, city)">
+      <ion-card-content class="card_content">
+        <div class="city_name">{{city.timezone}}</div>
+        <div class="city_info">
+          <div class="city_info_temp">{{city.current.temp | number:'1.0-0'}}&#176;</div>
+          <div class="city_info_ico" [ngSwitch]="city.current.weather[0].main">
+            <app-dynamicIcon [weatherState]="city.current.weather[0].main"></app-dynamicIcon>
+          </div>
+        </div>
+      </ion-card-content>
+  </ion-item>
+  <ion-item-options side="end">
+    <ion-item-option (click)="chooseCurrentCity(city, slidingItem)" color="dark">
+      <ion-icon name="checkmark-outline"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

@@ -1,0 +1,63 @@
+@import '../../../../mixins.scss';
+@import '../../../../shered/variables.scss';
+
+.card_content {
+    @media (max-width: 320px) {
+        font-size: .7em;
+    }
+    background-color: rgb(34, 36, 40,.8);
+    padding: 20px 30px 10px;
+    border-radius: 8px;
+    min-width: 90vw;
+    max-width: 90vw;
+    @include flex-column;
+    .card_info {
+        font-family: 'Lemonada', cursive;
+        font-size: .8em;
+        display: flex;
+        justify-content: space-between;
+    }
+    .main-info {
+        @include flex-column;
+        justify-content: space-between;
+        .city_temp {
+            font-size: 3.3em;
+            line-height: 50px;
+            @media (max-width: 320px) {
+                font-size: 2em;
+            }
+        }
+        .city_name {
+            display: flex;
+            align-items: flex-end;
+        }
+    }
+    .card_text {
+        font-size: 0.6em;
+        padding-top: 15px;
+        & span > span {
+            margin-right: 5px;
+            color: red;
+        }
+    }
+    .second_info {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9em;
+        .left, .right {
+            @include flex-column;
+            justify-content: space-between;
+        }
+        .right {
+            margin-left: 15px;
+        }
+    }
+}
+.custom-skeleton {
+    min-width: 90vw;
+    border-radius: 8px;
+}
+.custom-skeleton ion-skeleton-text {
+    line-height: 13px;
+    background-color: rgb(34, 33, 33, .5);
+  }

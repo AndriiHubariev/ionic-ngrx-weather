@@ -1,0 +1,31 @@
+
+<ion-split-pane contentId="main-content">
+  <ion-menu class="menu" contentId="main-content" type="overlay">
+    <ion-content>
+      <ion-list>
+        <app-slidingItem></app-slidingItem>
+      </ion-list>
+      <app-search></app-search>
+    </ion-content>
+  </ion-menu>
+  <ion-header>
+    <ion-buttons>
+      <ion-menu-button>
+       <ion-icon color="light" name="ellipsis-horizontal-outline"></ion-icon>
+      </ion-menu-button>
+   </ion-buttons>
+    <ion-segment value="all">
+      <ion-segment-button [routerLink]="['/']" routerDirection="back"  value="all">
+        <ion-label>Today</ion-label>
+      </ion-segment-button>
+      <ion-segment-button [routerLink]="['/future']" value="favorites">
+        <ion-label>Future</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-header>
+  <ion-router-outlet id="main-content">
+  </ion-router-outlet>
+</ion-split-pane>
+
+
+
