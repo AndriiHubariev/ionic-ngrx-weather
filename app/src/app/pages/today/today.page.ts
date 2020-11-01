@@ -11,7 +11,10 @@ export class TodayPage implements OnInit {
 
   constructor(private store: Store) { }
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  scroll(e) {
+    console.log(e)
   }
 
 }

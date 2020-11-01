@@ -4,8 +4,12 @@
     align-items: center;
     margin: 10px;
     ion-button {
-        height: 45px;
-        width: 95%;
+        height: 25px;
+        width: 45%;
+        --border-radius: 15px;
+        --background-activated: red;
+        --background-hover: red;
+        --ion-color-contrast: red;
     }
     .city_form {
         @include flex-column;
@@ -14,9 +18,7 @@
         .search_btns {
             display: flex;
             justify-content: space-between;
-            ion-button {
-                width: 40%;
-            }
+            margin-top: 10px;
         }
         input {
             font-family: 'Lemonada', cursive;

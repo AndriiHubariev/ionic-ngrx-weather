@@ -10,6 +10,7 @@
     border-radius: 8px;
     min-width: 90vw;
     max-width: 90vw;
+    transition: .8s ease-in-out;
     @include flex-column;
     .card_info {
         font-family: 'Lemonada', cursive;
@@ -30,6 +31,12 @@
         .city_name {
             display: flex;
             align-items: flex-end;
+            .name {
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+                max-width: 70px;
+            }
         }
     }
     .card_text {

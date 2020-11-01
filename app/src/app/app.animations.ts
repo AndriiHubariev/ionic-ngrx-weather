@@ -26,5 +26,8 @@ import {
 export const slideCardAnim = trigger('slideCardAnim', [
     transition('void => *', useAnimation(bounceIn)),
 ]);
+export const show = trigger('show', [
+  transition('void => *', useAnimation(bounceIn)),
+]);
 
 

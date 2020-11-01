@@ -32,9 +32,11 @@ export class FetchService {
        switchMap(response => this.getMultipleData(response.coord).pipe(
          map((second: DataResponseInetrface) => {
           //  FORMAT DATE
-          second.current.sunrise = (second.current.sunrise + second.timezone_offset) * 1000,
-          // second.current.sunset = (second.current.sunrise + second.timezone_offset) * 1000;
+          second.current.sunrise = (second.current.sunrise + second.timezone_offset) * 1000;
           second.current.sunset = (second.current.sunset + second.timezone_offset) * 1000;
+          for (const hour of second.hourly) {
+            hour.dt = (hour.dt + second.timezone_offset) * 1000;
+          }
           //  REWRITE TIMEZONE INTO CORRECT
           return {...second, timezone: response.name};
          })
@@ -53,8 +55,11 @@ export class FetchService {
      return this.getMultipleData(coords).pipe(
       map((response: DataResponseInetrface) => {
         //  FORMAT DATE
-        response.current.sunrise = (response.current.sunrise + response.timezone_offset) * 1000,
-        response.current.sunset = (response.current.sunset + response.timezone_offset) * 1000,
+        response.current.sunrise = (response.current.sunrise + response.timezone_offset) * 1000;
+        response.current.sunset = (response.current.sunset + response.timezone_offset) * 1000;
+        for (const hour of response.hourly) {
+          hour.dt = (hour.dt + response.timezone_offset) * 1000;
+        }
         response.timezone = this.sliceCityName(response.timezone);
         return response;
       }),

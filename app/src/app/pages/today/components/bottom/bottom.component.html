@@ -1,5 +1,16 @@
-<div *ngIf="weatherData">
-  <p *ngFor="let item of weatherData">
-    {{ item.temp }}
-  </p>
+<div class="hourly_content">
+  <ul *ngIf="weatherData">
+    <div class="line"></div>
+    <li class="li" *ngFor="let item of weatherData">
+      <div #li class="wrapper">
+        <small class="time">
+          {{ item.dt | date: 'HH:mm':'UTC' }}
+        </small>
+        <small class="weather">
+          {{ item.temp | number: '1.0-0' }}&#176;
+          {{ item.weather[0].main | lowercase }}
+        </small>
+      </div>
+    </li>
+  </ul>
 </div>

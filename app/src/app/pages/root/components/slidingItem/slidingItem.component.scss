@@ -5,8 +5,6 @@ ion-content, ion-item, ion-list.list-md, ion-item-options {
     --inner-padding-end: 0px;
 }
 ion-item-sliding {
-    background: $bacground-color;
-    --background: $bacground-color;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,12 +33,11 @@ ion-item {
 }
 ion-item-options {
     border: none;
-    background: $bacground-color;;
+    height: 80%;
 }
 ion-item-option {
     font-family: 'Roboto', sans-serif;
-    width: 50px;
-    height: 50px;
+    width: 60px;
     font-size: 20px;
     border-radius: 50%;
     outline: none;

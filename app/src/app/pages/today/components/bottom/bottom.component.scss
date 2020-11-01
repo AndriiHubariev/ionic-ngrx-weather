@@ -1,0 +1,88 @@
+
+.hourly_content {
+    ul {
+        position: relative;
+        width: 52%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        padding: 15px;
+        @media (max-width: 320px) {
+            width: 61%;
+        }
+        .line {
+            position: absolute;
+            margin: 0 auto;
+            width: 1px;
+            height: 100%;
+            border-right: 1px solid rgba(214, 212, 212, 0.4);
+        }
+        .wrapper {
+            display: flex;
+            opacity: 0;
+            transition: .5s ease-in-out;
+            transform: translateY(30px)
+        }
+        li:nth-child(even) {
+            position: relative;
+            align-self: start;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+                .weather {
+                    order: 1;
+                }
+                .time {
+                    margin-left: 5px;
+                    color: rgb(255, 255, 255, .5);
+                    order: 2;
+                }
+            &::after {
+                content: '';
+                position: absolute;
+                border: 3px solid rgb(255, 255, 255, .8);
+                right: -17px;
+                height: 3px;
+                width: 3px;
+                border-radius: 50%;
+                background-color: rgb(5, 5, 5);
+                box-shadow: 0 0 0px 5px black;
+            }
+         }
+        li:nth-child(odd) {
+            position: relative;
+            align-self: flex-end;
+            display: flex;
+            align-items: center;
+            .time {
+                margin-right: 5px;
+                color: rgb(255, 255, 255, .5);
+            }
+            &::before {
+                content: '';
+                border: 3px solid rgb(255, 255, 255, .8);
+                position: absolute;
+                left: -17px;
+                height: 3px;
+                width: 3px;
+                border-radius: 50%;
+                background-color: rgb(5, 5, 5);
+                box-shadow: 0 0 0px 5px black;
+            }
+        }
+    }
+    li {
+        height: 40px;
+        width: 70px;
+        white-space: nowrap;
+    }
+}
+
+// anim
+
+.showLi {
+    display: block;
+}

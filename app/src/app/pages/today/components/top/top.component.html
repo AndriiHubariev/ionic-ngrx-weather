@@ -21,14 +21,14 @@
     style="width: 100%; margin-bottom: 10px"
   ></ion-skeleton-text>
 </div>
-<div *ngIf="weatherData" class="card_content">
+<div [@show] *ngIf="weatherData" class="card_content">
   <div class="card_info">
     <div class="main-info">
       <div class="city_temp">
         {{ weatherData.temp | number: '1.0-0' }}&#176;
       </div>
       <div class="city_name">
-        {{ cityName }}
+        <span class="name">{{ cityName }}</span>
         <app-dynamicIcon [weatherState]="weatherData.weather[0].main"></app-dynamicIcon>
       </div>
     </div>

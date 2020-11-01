@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { show } from 'src/app/app.animations';
 import { CurrentWeatherInterface } from 'src/app/shered/interfaces/currentWeather.interface';
 import { DataResponseInetrface } from 'src/app/shered/interfaces/dataResponse.inetrface';
 import { CurrentCitySelector } from '../../store/selectors';
@@ -9,7 +10,8 @@ import { CurrentCitySelector } from '../../store/selectors';
 @Component({
   selector: 'app-top',
   templateUrl: './top.component.html',
-  styleUrls: ['./top.component.scss']
+  styleUrls: ['./top.component.scss'],
+  animations: [show]
 })
 export class TopComponent implements OnInit {
   cityName: string;
