@@ -7,9 +7,6 @@
         height: 25px;
         width: 45%;
         --border-radius: 15px;
-        --background-activated: red;
-        --background-hover: red;
-        --ion-color-contrast: red;
     }
     .city_form {
         @include flex-column;
@@ -24,10 +21,10 @@
             font-family: 'Lemonada', cursive;
             padding: 8px;
             margin: 15px 0 10px 0;
-            color: rgb(236, 236, 236);
+            color: #646162 ;
             outline: none;
             border-radius: 8px;
-            background-color: rgb(34, 36, 40);
+            background-color: rgb(189, 197, 214);
             border: none;
             &::placeholder {
                 font-size: 11px;

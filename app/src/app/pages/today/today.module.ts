@@ -13,6 +13,7 @@ import { TopComponent } from './components/top/top.component';
 import { BottomComponent } from './components/bottom/bottom.component';
 import { SheredModule } from 'src/app/shered/shered.module';
 import { HoursAnimDirective } from './components/bottom/directives/hoursAnim.directive';
+import { SkeletonComponent } from './components/top/components/skeleton/skeleton.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,6 @@ import { HoursAnimDirective } from './components/bottom/directives/hoursAnim.dir
     SheredModule,
     StoreModule.forFeature('todayState', reducers),
   ],
-  declarations: [TodayPage, TopComponent, BottomComponent, HoursAnimDirective]
+  declarations: [TodayPage, TopComponent, BottomComponent, HoursAnimDirective, SkeletonComponent]
 })
 export class TodayPageModule {}

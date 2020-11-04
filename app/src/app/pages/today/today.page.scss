@@ -1,17 +1,30 @@
 
 .top_content {
-    position: relative;
     height: 100vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;
     padding: 50px 0 10%;
-    background-image: url('../../../assets/1.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    z-index: 1;
 }
 .bottom_content {
-    // background-color: black;
+   border-radius: 10px;
+   background: rgb(34, 36, 40,.9);
+}
+.Rain, .Drizzle {
+    --background: url('../../../assets/bacgroundPics/rain.jpg') 50% 0/170% 100% no-repeat;
+}
+.Fog, .Haze, .Mist{
+    --background: url('../../../assets/bacgroundPics/fog.jpg') 50% 0/170% 100% no-repeat;
+}
+.Clouds {
+    --background: url('../../../assets/bacgroundPics/clouds.jpg') 50% 0/170% 100% no-repeat;
+}
+.Snow {
+    --background: url('../../../assets/bacgroundPics/snow.jpg') 50% 0/170% 100% no-repeat;
+}
+.Clear {
+    --background: url('../../../assets/bacgroundPics/clear.jpg') 50% 0/170% 100% no-repeat;
+}
+.Thunderstorm {
+    --background: url('../../../assets/bacgroundPics/Thunderstorm.jpg') 50% 0/170% 100% no-repeat;
 }

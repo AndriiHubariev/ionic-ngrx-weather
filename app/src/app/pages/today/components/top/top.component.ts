@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { show } from 'src/app/app.animations';
+import { fatchFutureAction } from 'src/app/pages/future/store/actions/fetch.action';
 import { CurrentWeatherInterface } from 'src/app/shered/interfaces/currentWeather.interface';
 import { DataResponseInetrface } from 'src/app/shered/interfaces/dataResponse.inetrface';
 import { CurrentCitySelector } from '../../store/selectors';
@@ -13,7 +14,8 @@ import { CurrentCitySelector } from '../../store/selectors';
   styleUrls: ['./top.component.scss'],
   animations: [show]
 })
-export class TopComponent implements OnInit {
+export class TopComponent implements OnInit, OnDestroy {
+  private subs$: Subscription;
   cityName: string;
   weatherData: CurrentWeatherInterface;
 
@@ -27,5 +29,7 @@ export class TopComponent implements OnInit {
       }
     });
   }
-
+  ngOnDestroy(): void {
+    this.subs$.unsubscribe();
+  }
 }

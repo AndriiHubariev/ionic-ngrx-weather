@@ -1,0 +1,41 @@
+@import '../../mixins.scss';
+ion-content {
+    --padding-top: 100px;
+    --background: linear-gradient(#1e1e2f, #1e1e24)
+}
+.charts {
+    @include flex-column;
+    // padding: 20px;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    .temp_chart {
+        width: 95%;
+        height: 30%;
+    }
+}
+.chart {
+    border-radius: 8px;
+    box-shadow: 0 0 5px 0px rgb(24, 24, 24);
+    background: linear-gradient(#232336, #212129);
+}
+
+.days_chart {
+    z-index: 3;
+    margin-left: 20px;
+    margin-top: 10px;
+    position: relative;
+    width: 100%;
+    height: 22%;
+    overflow: auto;
+    padding: 5px 0;
+    &::-webkit-scrollbar {
+        display: none;
+      }
+
+    .days_chart_inner {
+        z-index: 3;
+        position: absolute;
+        height: 90%;
+    }
+}

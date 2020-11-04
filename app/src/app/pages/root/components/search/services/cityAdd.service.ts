@@ -1,7 +1,6 @@
 import {Injectable} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {BehaviorSubject, pipe, Subscription} from 'rxjs';
-import { deleteAction } from '../../../store/actions/delete.action';
 import { fetchAction } from '../../../store/actions/fetch.action';
 import { WeatherDataSelector } from '../../../store/selectors';
 

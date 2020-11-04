@@ -5,7 +5,7 @@
     @media (max-width: 320px) {
         font-size: .7em;
     }
-    background-color: rgb(34, 36, 40,.8);
+    background-color: rgb(34, 36, 40,.8);;
     padding: 20px 30px 10px;
     border-radius: 8px;
     min-width: 90vw;
@@ -60,11 +60,3 @@
         }
     }
 }
-.custom-skeleton {
-    min-width: 90vw;
-    border-radius: 8px;
-}
-.custom-skeleton ion-skeleton-text {
-    line-height: 13px;
-    background-color: rgb(34, 33, 33, .5);
-  }

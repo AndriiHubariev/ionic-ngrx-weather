@@ -13,3 +13,7 @@ export const LoadingStateSelector = createSelector(
     rootFutureSelector,
     (rootState: RootStateInterface) => rootState.isLoading
 );
+export const LoadedStateSelector = createSelector(
+    rootFutureSelector,
+    (rootState: RootStateInterface) => rootState.isLoaded
+);

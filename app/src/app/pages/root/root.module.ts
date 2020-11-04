@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { RootPageRoutingModule } from './root-routing.module';
 
 import { RootPage } from './root.page';
-import { ActionSheetService } from './services/actionSheet.service';
 import { SearchComponent } from './components/search/search.component';
 import { CityAddService } from './components/search/services/cityAdd.service';
 import { SlidingItemComponent } from './components/slidingItem/slidingItem.component';
@@ -31,6 +30,6 @@ import { SheredModule } from '../../shered/shered.module';
     StoreModule.forFeature('rootState', reducer),
     EffectsModule.forFeature([FetchEffect])
   ],
-  providers: [ActionSheetService, CityAddService, LocationService]
+  providers: [CityAddService, LocationService]
 })
 export class RootPageModule {}

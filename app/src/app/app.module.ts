@@ -16,6 +16,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { RootPageModule } from './pages/root/root.module';
 import { SheredModule } from './shered/shered.module';
+import { ActionSheetService } from './pages/root/services/actionSheet.service';
+import { ToastService } from './pages/root/store/services/toast.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,8 @@ import { SheredModule } from './shered/shered.module';
     IonicModule.forRoot(),
     AppRoutingModule,
     SheredModule,
+    ActionSheetService,
+    ToastService,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

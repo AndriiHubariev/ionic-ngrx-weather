@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
 import { error } from 'protractor';
 import { Observable, pipe, Subscription } from 'rxjs';
-import { LoadingStateSelector } from '../../store/selectors';
+import { LoadedStateSelector, LoadingStateSelector } from '../../store/selectors';
 import { CityAddService } from './services/cityAdd.service';
+import { ToastService } from '../../store/services/toast.service';
 
 @Component({
   selector: 'app-search',
@@ -16,7 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   public formIsOpened = false;
   public isLoading$: Observable<boolean>;
 
-  constructor(private addCityService: CityAddService, public store: Store) { }
+  constructor(private addCityService: CityAddService, public store: Store, private toast: ToastService) { }
 
   ngOnInit() {
    this.subs$ = this.addCityService.cityError.subscribe(error => this.cityError = error);

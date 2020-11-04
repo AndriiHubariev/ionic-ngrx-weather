@@ -15,10 +15,11 @@ export class ActionSheetService {
   constructor(
     public actionSheetController: ActionSheetController,
     private store: Store,
-    private menu: MenuController
+    private menu: MenuController,
   ) {}
 
   async presentActionSheet(name: string, city: DataResponseInetrface) {
+    const close = () => actionSheet.dismiss();
     const actionSheet = await this.actionSheetController.create({
       header: 'Actions',
       cssClass: 'my-custom-class',

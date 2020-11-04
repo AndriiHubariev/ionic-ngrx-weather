@@ -16,6 +16,7 @@ const rootReducer = createReducer(
     on(fetchAction, (state): RootStateInterface => ({
         ...state,
         isLoading: true,
+        isLoaded: false,
         validationErros: null
     })),
 

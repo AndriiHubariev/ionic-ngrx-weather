@@ -38,6 +38,7 @@ export class FetchService {
             hour.dt = (hour.dt + second.timezone_offset) * 1000;
           }
           //  REWRITE TIMEZONE INTO CORRECT
+          second.daily = second.daily.filter((day, idx) => idx !== 0);
           return {...second, timezone: response.name};
          })
        ))
@@ -61,6 +62,7 @@ export class FetchService {
           hour.dt = (hour.dt + response.timezone_offset) * 1000;
         }
         response.timezone = this.sliceCityName(response.timezone);
+        response.daily = response.daily.filter((day, idx) => idx !== 0);
         return response;
       }),
           // get jock
