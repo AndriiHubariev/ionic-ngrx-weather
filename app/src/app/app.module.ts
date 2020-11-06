@@ -1,7 +1,8 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {RouteReuseStrategy} from '@angular/router';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 
 import {IonicModule, IonicRouteStrategy} from '@ionic/angular';
 import {SplashScreen} from '@ionic-native/splash-screen/ngx';
@@ -16,8 +17,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { HttpClientModule } from '@angular/common/http';
 import { RootPageModule } from './pages/root/root.module';
 import { SheredModule } from './shered/shered.module';
-import { ActionSheetService } from './pages/root/services/actionSheet.service';
-import { ToastService } from './pages/root/store/services/toast.service';
+import { RouteReuseStrategy } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],
@@ -29,14 +29,13 @@ import { ToastService } from './pages/root/store/services/toast.service';
     IonicModule.forRoot(),
     AppRoutingModule,
     SheredModule,
-    ActionSheetService,
-    ToastService,
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     HttpClientModule,
   ],
   providers: [
+    Geolocation,
     StatusBar,
     SplashScreen,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy},

@@ -11,7 +11,7 @@ import { ToastService } from '../../store/services/toast.service';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
-export class SearchComponent implements OnInit, OnDestroy {
+export class SearchComponent implements OnInit {
   private subs$: Subscription;
   public cityError = '';
   public formIsOpened = false;
@@ -20,7 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(private addCityService: CityAddService, public store: Store, private toast: ToastService) { }
 
   ngOnInit() {
-   this.subs$ = this.addCityService.cityError.subscribe(error => this.cityError = error);
+   this.addCityService.cityError.subscribe(error => this.cityError = error);
    this.addCityService.cityFormIsOpened.subscribe(state => this.formIsOpened = state);
    this.isLoading$ = this.store.select(pipe(LoadingStateSelector));
   }
@@ -36,7 +36,4 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.addCityService.addCity(cityName);
   }
 
-  ngOnDestroy(): void {
-    this.subs$.unsubscribe();
-  }
 }

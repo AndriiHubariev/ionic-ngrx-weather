@@ -12,33 +12,18 @@ import {CurrentCitySelector} from '../../store/selectors';
   templateUrl: './bottom.component.html',
   styleUrls: ['./bottom.component.scss'],
 })
-export class BottomComponent implements OnInit, OnDestroy, AfterViewInit{
-  @ContentChild('li') li;
-  sub$: Subscription;
-  weatherData: HourlyWeatherInterface[];
+export class BottomComponent implements OnInit {
+  data: HourlyWeatherInterface[];
 
   constructor(private store: Store) {}
-  ngAfterViewInit(): void {
-    // if (this.li) {
-    //     fromEvent(this.li.nativeElement, 'click').subscribe(e => console.log(e))
-    // }
-  }
-
-  ngOnInit() {
-    this.sub$ = this.store
-      .pipe(select(CurrentCitySelector))
-      .subscribe((data: DataResponseInetrface) => {
-        if (data) {
-          const hourlyData = [...data.hourly].slice(1, 26);
-          this.weatherData = hourlyData.filter((hour, idx) => idx % 4 === 0);
-        }
-      });
-  }
-  ngOnDestroy(): void {
-    this.sub$.unsubscribe();
-  }
-
-  scroll(e) {
-    console.log(e);
+  ngOnInit() { 
+    this.store
+    .pipe(select(CurrentCitySelector))
+    .subscribe((res: DataResponseInetrface) => {
+      if (res) {
+        const hourlyData = [...res.hourly].slice(1, 26);
+        this.data = hourlyData.filter((hour, idx) => idx % 4 === 0);
+      }
+    });
   }
 }

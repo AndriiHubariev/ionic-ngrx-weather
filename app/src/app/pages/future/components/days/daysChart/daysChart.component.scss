@@ -1,12 +1,11 @@
 @import '../../../../../mixins.scss';
 .day_container {
-    z-index: 1;
     font-family: 'Lemonada', cursive;
     display: flex;
     height: 100%;
     justify-content: space-between;
     .day {
-        background: linear-gradient(#232336, #212129);
+        // background: linear-gradient(#232336, #212129);
         width: 130px;
         border-radius: 8px;
         box-shadow: 0 0 5px 0px rgb(24, 24, 24);

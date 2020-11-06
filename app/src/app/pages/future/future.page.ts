@@ -17,13 +17,13 @@ export class FuturePage implements OnInit, OnDestroy {
    }
 
   ngOnInit() {
-   this.subs$ = this.store.pipe(select(CurrentCitySelector)).subscribe(res => {
+   this.store.pipe(select(CurrentCitySelector)).subscribe(res => {
       this.store.dispatch(fatchFutureAction({data: res.daily}));
     });
   }
 
   ngOnDestroy() {
-    this.subs$.unsubscribe();
+    // this.subs$.unsubscribe();
   }
 
 }

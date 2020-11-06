@@ -30,7 +30,7 @@ export class SlidingItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.subs$ = this.locationService
+    this.locationService
     .getСurrentLocation()
     .subscribe((coords: Coords) => this.store.dispatch(fetchAction({coords})));
 

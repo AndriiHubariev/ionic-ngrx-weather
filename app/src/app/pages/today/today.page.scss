@@ -1,4 +1,11 @@
 
+// ion-content::part(scroll) {
+//     touch-action: auto;
+//     overflow-y: inherit;
+//     overscroll-behavior-y: unset;
+//     overflow: auto;
+// }
+
 .top_content {
     height: 100vh;
     display: flex;

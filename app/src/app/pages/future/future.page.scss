@@ -1,7 +1,7 @@
 @import '../../mixins.scss';
 ion-content {
     --padding-top: 100px;
-    --background: linear-gradient(#1e1e2f, #1e1e24)
+    // --background: linear-gradient(#1e1e2f, #1e1e24)
 }
 .charts {
     @include flex-column;
@@ -21,7 +21,6 @@ ion-content {
 }
 
 .days_chart {
-    z-index: 3;
     margin-left: 20px;
     margin-top: 10px;
     position: relative;
@@ -29,12 +28,8 @@ ion-content {
     height: 22%;
     overflow: auto;
     padding: 5px 0;
-    &::-webkit-scrollbar {
-        display: none;
-      }
 
     .days_chart_inner {
-        z-index: 3;
         position: absolute;
         height: 90%;
     }

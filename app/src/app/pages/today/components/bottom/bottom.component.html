@@ -1,7 +1,7 @@
 <div class="hourly_content">
-  <ul *ngIf="weatherData">
+  <ul *ngIf="data">
     <div class="line"></div>
-    <li class="li" *ngFor="let item of weatherData">
+    <li class="li" *ngFor="let item of data">
       <div #li class="wrapper">
         <small class="time">
           {{ item.dt | date: 'HH:mm':'UTC' }}

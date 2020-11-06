@@ -19,7 +19,6 @@ export class ActionSheetService {
   ) {}
 
   async presentActionSheet(name: string, city: DataResponseInetrface) {
-    const close = () => actionSheet.dismiss();
     const actionSheet = await this.actionSheetController.create({
       header: 'Actions',
       cssClass: 'my-custom-class',
@@ -40,6 +39,8 @@ export class ActionSheetService {
         {
           text: 'Cancel',
           role: 'cancel',
+          handler: () => {
+          }
         },
       ],
     });

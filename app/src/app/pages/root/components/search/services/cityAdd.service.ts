@@ -41,15 +41,13 @@ export class CityAddService {
   }
 
   public checkCityExistence(cityName: string): boolean {
-    let subs$: Subscription;
     let isExist = false;
-    subs$ = this.store.select(pipe(WeatherDataSelector)).subscribe((data) => {
+    this.store.select(pipe(WeatherDataSelector)).subscribe((data) => {
       return (isExist = !!data.find(
         (city) => city.timezone.toLowerCase() === cityName.toLowerCase()
       ));
     });
     isExist && this.throwCityError('city already exist');
-    subs$.unsubscribe();
     return isExist;
   }
 

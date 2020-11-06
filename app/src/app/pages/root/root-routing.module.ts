@@ -8,7 +8,6 @@ const routes: Routes = [
     path: '',
     component: RootPage,
     children: [
-      {path: '', redirectTo: 'today', pathMatch: 'full'},
       {
         path: 'today',
         loadChildren: () => import('../today/today.module').then( m => m.TodayPageModule)
@@ -16,7 +15,8 @@ const routes: Routes = [
       {
         path: 'future',
         loadChildren: () => import('../future/future.module').then( m => m.FuturePageModule)
-      }
+      },
+      {path: '', redirectTo: 'today', pathMatch: 'full'},
     ]
   }
 ];
