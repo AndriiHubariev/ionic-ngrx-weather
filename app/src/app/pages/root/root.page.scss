@@ -8,27 +8,35 @@ ion-item-options {
 .header-md::after {
     background-image: none;
 }
-// ion-list, .list-md, .list-ios {
-//   background: transparent;
-// }
-ion-content {
+ion-list, .list-md, .list-ios {
+  background: transparent;
+}
+
+.mainContent {
+  --background: url('../../../assets/bacgroundPics/clouds.jpg') 50% 0/170% 100% no-repeat;
+}
+.menuContent {
   --padding-top: 100px;
-  // --background: linear-gradient(#1e1e2f,#1e1e24);
 }
 ion-header {
   display: flex;
   justify-content: space-between;
-  height: 30px;
-  margin: 50px 10px 0 10px;
+  height: 80px;
+  padding: 0 0 0 10px;
+  align-items: flex-end;
   --background: transparent;
+  max-width: 95%;
 }
 ion-segment {
   width: 200px;
+  background:rgba(1, 12, 29, 0.3);
 }
 
 ion-segment-button {
+  display: flex;
+  align-items: center;
   font-family: 'Lemonada', cursive;
   color: white;
   outline: none;
-  --indicator-color: rgb(8, 8, 8, 0.6) !important;
+  --indicator-color: rgba(6, 130, 247, 0.8) !important;
 }

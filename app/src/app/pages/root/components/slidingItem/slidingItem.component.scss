@@ -26,6 +26,7 @@ ion-item {
         color: rgb(229, 226, 226);
         align-items: center;
         font-family: 'Lemonada', cursive;
+        background: linear-gradient(#0395f7, #91c6e5);
         .city_info {
             width: 30%;
             display: flex;
@@ -48,6 +49,6 @@ ion-item-option {
     outline: none;
     margin-right: 15px;
     color: white;
-    background: #32323a;
+    background: #0395f7;
     // box-shadow: 0 0 10px 2px linear-gradient(#ec250d, #fd5d93);
 }

@@ -32,7 +32,11 @@ export class SlidingItemComponent implements OnInit {
   ngOnInit() {
     this.locationService
     .getСurrentLocation()
-    .subscribe((coords: Coords) => this.store.dispatch(fetchAction({coords})));
+    .subscribe((coords: Coords) => this.store.dispatch(fetchAction({coords})), error => {
+      if (error.code === 2) {
+        this.store.dispatch(fetchAction({coords: {lat: 50, lon: 30}}));
+      }
+    });
 
     this.weatherData$ = this.store.select(WeatherDataSelector);
   }

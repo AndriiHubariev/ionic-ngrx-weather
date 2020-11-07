@@ -5,7 +5,8 @@
     @media (max-width: 320px) {
         font-size: .7em;
     }
-    background-color: rgb(34, 36, 40,.8);;
+    background-color: rgba(250, 251, 252, 0.8);
+    color: rgb(83, 82, 82);
     padding: 20px 30px 10px;
     border-radius: 8px;
     min-width: 90vw;
@@ -41,11 +42,16 @@
     }
     .card_text {
         font-size: 0.6em;
+        max-height: 50px;
+        overflow: auto;
         padding-top: 15px;
         & span > span {
             margin-right: 5px;
             color: red;
         }
+        &::-webkit-scrollbar {
+            display: none;
+          }  
     }
     .second_info {
         display: flex;

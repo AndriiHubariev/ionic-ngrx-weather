@@ -5,7 +5,14 @@
 //     overscroll-behavior-y: unset;
 //     overflow: auto;
 // }
-
+// :host {
+//     ion-content {
+//       --background:none;
+//       background:url('../../../assets/bacgroundPics/rain.jpg');
+//       background-size: cover;
+//       background-position: center center;
+//     }
+// }
 .top_content {
     height: 100vh;
     display: flex;
@@ -15,23 +22,30 @@
 }
 .bottom_content {
    border-radius: 10px;
-   background: rgb(34, 36, 40,.9);
+   opacity: .9;
+   background: linear-gradient(#0395f7, #91c6e5);
 }
 .Rain, .Drizzle {
-    --background: url('../../../assets/bacgroundPics/rain.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/rain.jpg') 50% 0/170% 100% no-repeat;
 }
 .Fog, .Haze, .Mist{
-    --background: url('../../../assets/bacgroundPics/fog.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/fog.jpg') 50% 0/170% 100% no-repeat;
 }
 .Clouds {
-    --background: url('../../../assets/bacgroundPics/clouds.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/clouds.jpg') 50% 0/170% 100% no-repeat;
 }
 .Snow {
-    --background: url('../../../assets/bacgroundPics/snow.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/snow.jpg') 50% 0/170% 100% no-repeat;
 }
 .Clear {
-    --background: url('../../../assets/bacgroundPics/clear.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/clear.jpg') 50% 0/170% 100% no-repeat;
 }
 .Thunderstorm {
-    --background: url('../../../assets/bacgroundPics/Thunderstorm.jpg') 50% 0/170% 100% no-repeat;
+    --background:none;
+    background: url('../../../assets/bacgroundPics/Thunderstorm.jpg') 50% 0/170% 100% no-repeat;
 }

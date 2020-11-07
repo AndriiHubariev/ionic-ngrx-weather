@@ -1,32 +1,32 @@
-
-<ion-split-pane contentId="main-content">
-  <ion-menu class="menu" contentId="main-content">
-    <ion-content>
-      <ion-list>
-        <app-slidingItem></app-slidingItem>
-      </ion-list>
-      <app-search></app-search>
-    </ion-content>
-  </ion-menu>
+<ion-menu class="menu" contentId="main-content">
+  <ion-content color="dark" class="menuContent">
+    <ion-list>
+      <app-slidingItem></app-slidingItem>
+    </ion-list>
+    <app-search></app-search>
+  </ion-content>
+</ion-menu>
+<ion-content id="main-content" class="mainContent">
   <ion-header>
     <ion-buttons>
       <ion-menu-button>
-       <ion-icon color="light" name="ellipsis-horizontal-outline"></ion-icon>
+        <ion-icon color="light" name="ellipsis-horizontal-outline"></ion-icon>
       </ion-menu-button>
-   </ion-buttons>
-    <ion-segment value="all">
-      <ion-segment-button [routerLink]="['/']" routerDirection="back"  value="all">
-        <ion-label>Today</ion-label>
-      </ion-segment-button>
-      <ion-segment-button [routerLink]="['/future']" value="favorites">
-        <ion-label>Future</ion-label>
-      </ion-segment-button>
-    </ion-segment>
+    </ion-buttons>
+      <ion-segment value="all">
+        <ion-segment-button
+        value="/"
+          [routerLink]="['/']"
+          routerDirection="back"
+          value="all"
+        >
+        <ion-tab-button tab="/"></ion-tab-button>
+          <ion-label>Today</ion-label>
+        </ion-segment-button>
+        <ion-segment-button [routerLink]="['/future']" value="/future">
+          <ion-label>Future</ion-label>
+        </ion-segment-button>
+      </ion-segment>
   </ion-header>
-  <ion-router-outlet id="main-content">
-  </ion-router-outlet>
-</ion-split-pane>
-
-
-
-
+  <ion-router-outlet> </ion-router-outlet>
+</ion-content>

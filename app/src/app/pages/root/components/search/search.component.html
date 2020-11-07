@@ -1,24 +1,24 @@
-<ion-progress-bar color="dark" *ngIf="isLoading$ | async" type="indeterminate">
+<ion-progress-bar color="primary" *ngIf="isLoading$ | async" type="indeterminate">
 </ion-progress-bar>
 <div *ngIf="!(isLoading$ | async)" class="search_container">
   <ion-button
     *ngIf="!formIsOpened"
     (click)="toggleForm()"
     size="small"
-    color="dark"
     class="toggleBtn"
+    color="primary"
   >
     <ion-icon name="add-outline"></ion-icon>
   </ion-button>
   <div *ngIf="formIsOpened" class="city_form">
     <input placeholder="city name" #cityInput type="text" />
     <div class="search_btns">
-      <ion-button (click)="toggleForm()" color="dark" size="small">
+      <ion-button color="primary" (click)="toggleForm()" size="small">
         <ion-icon name="close-outline"></ion-icon>
       </ion-button>
       <ion-button
         (click)="submitCity(cityInput.value)"
-        color="dark"
+        color="primary"
         size="small"
       >
         <ion-icon name="checkmark-outline"></ion-icon>

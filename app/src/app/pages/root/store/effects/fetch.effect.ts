@@ -30,6 +30,7 @@ export class FetchEffect {
         return this.fetch.getData(coords, cityname).pipe(
           map((response: DataResponseInetrface) => {
             this.store.dispatch(takeAction({city: response}));
+            this.toastService.presentToast();
             return fetchSuccesAction({response});
           }),
           catchError((errors: HttpErrorResponse) =>
