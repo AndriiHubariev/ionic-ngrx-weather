@@ -1,6 +1,6 @@
-<ion-content [ngClass]="weatherState" appHoursAnim [scrollEvents]="true">
-  <div class="top_content">
-    <app-top></app-top>
+<ion-content  #content [ngClass]="weatherState" appHoursAnim [scrollEvents]="true">
+  <div (click)="scrollTop(content)" class="top_content">
+    <app-top (click)="scrollBottom(content)"></app-top>
   </div>
   <div class="bottom_content">
     <app-bottom></app-bottom>

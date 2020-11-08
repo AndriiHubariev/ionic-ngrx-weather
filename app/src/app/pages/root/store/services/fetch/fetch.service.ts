@@ -34,9 +34,14 @@ export class FetchService {
           //  FORMAT DATE
           second.current.sunrise = (second.current.sunrise + second.timezone_offset) * 1000;
           second.current.sunset = (second.current.sunset + second.timezone_offset) * 1000;
+          second.current.dt = (second.current.dt + second.timezone_offset) * 1000;
           for (const hour of second.hourly) {
             hour.dt = (hour.dt + second.timezone_offset) * 1000;
           }
+          second.hourly = second.hourly.slice(1, 26);
+          // format sunrize/sunset
+          second.daily.forEach(day => (day.sunrise + second.timezone_offset) * 1000);
+          second.daily.forEach(day => (day.sunset + second.timezone_offset) * 1000);
           //  REWRITE TIMEZONE INTO CORRECT
           second.daily = second.daily.filter((day, idx) => idx !== 0);
           return {...second, timezone: response.name};
@@ -58,11 +63,16 @@ export class FetchService {
         //  FORMAT DATE
         response.current.sunrise = (response.current.sunrise + response.timezone_offset) * 1000;
         response.current.sunset = (response.current.sunset + response.timezone_offset) * 1000;
+        response.current.dt = (response.current.dt + response.timezone_offset) * 1000;
         for (const hour of response.hourly) {
           hour.dt = (hour.dt + response.timezone_offset) * 1000;
         }
+        response.hourly = response.hourly.slice(1, 26);
         response.timezone = this.sliceCityName(response.timezone);
         response.daily = response.daily.filter((day, idx) => idx !== 0);
+        // format sunrize/sunset
+        response.daily.forEach(day => day.sunrise = (day.sunrise + response.timezone_offset) * 1000);
+        response.daily.forEach(day => day.sunset = (day.sunset + response.timezone_offset) * 1000);
         return response;
       }),
           // get jock
@@ -76,7 +86,6 @@ export class FetchService {
     ));
     }
   }
-
   sliceCityName(name: string): string {
     return name.replace(/^.*\/(.*)$/, '$1');
   }

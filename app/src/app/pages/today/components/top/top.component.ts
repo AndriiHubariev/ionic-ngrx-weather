@@ -1,5 +1,6 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {select, Store} from '@ngrx/store';
+import {Subscription} from 'rxjs';
 import {show} from 'src/app/app.animations';
 import {CurrentWeatherInterface} from 'src/app/shered/interfaces/currentWeather.interface';
 import {DataResponseInetrface} from 'src/app/shered/interfaces/dataResponse.inetrface';
@@ -11,22 +12,24 @@ import {CurrentCitySelector} from '../../store/selectors';
   styleUrls: ['./top.component.scss'],
   animations: [show],
 })
-export class TopComponent implements OnInit {
+export class TopComponent implements OnInit, OnDestroy {
   cityName: string;
   weatherData: CurrentWeatherInterface;
+  private subs$: Subscription;
 
   constructor(private store: Store) {}
 
   ngOnInit() {
-    this.store
+    this.subs$ = this.store
       .pipe(select(CurrentCitySelector))
       .subscribe((res: DataResponseInetrface) => {
         if (res) {
-          this.weatherData = res.current;
           this.cityName = res.timezone;
-          // const hourlyData = [...res.hourly].slice(1, 26);
-          // this.dataBottom = hourlyData.filter((hour, idx) => idx % 4 === 0);
+          this.weatherData = res.current;
         }
       });
+  }
+  ngOnDestroy() {
+    this.subs$.unsubscribe();
   }
 }

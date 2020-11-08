@@ -1,6 +1,6 @@
 <div class="day_container">
-  <div *ngFor="let day of weatherData" class="day">
-    <div class="weekDay">{{day.dt | date: 'E'}}</div>
+  <div *ngFor="let day of weatherData" class="day" (click)="presentPopover(day)" >
+    <div class="weekDay">{{day.dt | date: 'E': 'UTC'}}</div>
     <div class="day_ico" [ngSwitch]="day.weather[0].main">
       <i *ngSwitchCase="'Fog'" class="fas fa-smog"></i>
       <i *ngSwitchCase="'Haze'" class="fas fa-smog"></i>
@@ -15,7 +15,7 @@
     <div class="dayNight">
       <span>
         <i class="fas fa-sun"></i>
-        {{day.temp.day | number: '1.0-0'}}&#176;
+        {{day.temp.morn | number: '1.0-0'}}&#176;
       </span>
       <span>
         <i class="ico far fa-moon"></i>

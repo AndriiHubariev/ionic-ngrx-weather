@@ -1,8 +1,8 @@
 import {Injectable} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {BehaviorSubject, pipe, Subscription} from 'rxjs';
-import { fetchAction } from '../../../store/actions/fetch.action';
-import { WeatherDataSelector } from '../../../store/selectors';
+import {Store} from '@ngrx/store';
+import {BehaviorSubject, pipe} from 'rxjs';
+import {fetchAction} from '../../../store/actions/fetch.action';
+import {WeatherDataSelector} from '../../../store/selectors';
 
 
 interface City {

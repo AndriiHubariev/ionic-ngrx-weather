@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IonItemSliding, MenuController} from '@ionic/angular';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
@@ -18,7 +18,7 @@ import { Coords, LocationService } from '../../store/services/location/location.
   styleUrls: ['./slidingItem.component.scss'],
   animations: [slideCardAnim]
 })
-export class SlidingItemComponent implements OnInit {
+export class SlidingItemComponent implements OnInit, OnDestroy {
   public weatherData$: Observable<DataResponseInetrface[]>;
   public subs$: Subscription;
 
@@ -30,7 +30,7 @@ export class SlidingItemComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.locationService
+    this.subs$ = this.locationService
     .getСurrentLocation()
     .subscribe((coords: Coords) => this.store.dispatch(fetchAction({coords})), error => {
       if (error.code === 2) {
@@ -49,5 +49,8 @@ export class SlidingItemComponent implements OnInit {
   }
   showActionSheet(cityName: string, city: DataResponseInetrface) {
     this.actionSheet.presentActionSheet(cityName, city);
+  }
+  ngOnDestroy() {
+    this.subs$.unsubscribe();
   }
 }

@@ -13,7 +13,7 @@ export class HoursAnimDirective {
     const scrollTop = e.detail.scrollTop;
     if (liList[0] !== undefined) {
       scrollTop > 60
-      ? e.target.childNodes[0].lastChild.childNodes[1].style.transform = 'translateY(55px)'
+      ? e.target.childNodes[0].lastChild.childNodes[1].style.transform = 'translateY(65px)'
       : e.target.childNodes[0].lastChild.childNodes[1].style.transform = 'translateY(0px)';
       liList.forEach(li => {
         if (scrollTop > li.offsetHeight + li.offsetTop) {

@@ -1,0 +1,13 @@
+ion-slides {
+    height: 100%;
+    padding: 5px;
+    ion-slide {
+        height: 90%;
+        width: 100%;
+    }
+    --bullet-background-active: white;
+  }
+.chart {
+    min-height: 100%;
+    min-width: 100%;
+}

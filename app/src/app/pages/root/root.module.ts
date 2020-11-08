@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
 import { RootPageRoutingModule } from './root-routing.module';
 
 import { RootPage } from './root.page';
-import { ActionSheetService } from './services/actionSheet.service';
 import { SearchComponent } from './components/search/search.component';
 import { CityAddService } from './components/search/services/cityAdd.service';
 import { SlidingItemComponent } from './components/slidingItem/slidingItem.component';
@@ -18,6 +17,7 @@ import { FetchEffect } from './store/effects/fetch.effect';
 import { LocationService } from './store/services/location/location.service';
 import { SheredModule } from '../../shered/shered.module';
 import { ToastService } from './store/services/toast.service';
+import { ActivatedRouteSnapshot, RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -27,6 +27,8 @@ import { ToastService } from './store/services/toast.service';
     FormsModule,
     IonicModule,
     RootPageRoutingModule,
+    ReactiveFormsModule,
+    RouterModule,
     FormsModule,
     SheredModule,
     StoreModule.forFeature('rootState', reducer),

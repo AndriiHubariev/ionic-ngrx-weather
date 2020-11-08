@@ -12,18 +12,20 @@ import { fatchFutureAction } from './store/actions/fetch.action';
 })
 export class FuturePage implements OnInit, OnDestroy {
   private subs$: Subscription;
+  cityName: string;
 
   constructor(private store: Store) {
    }
 
   ngOnInit() {
-   this.store.pipe(select(CurrentCitySelector)).subscribe(res => {
+   this.subs$ = this.store.pipe(select(CurrentCitySelector)).subscribe(res => {
       this.store.dispatch(fatchFutureAction({data: res.daily}));
+      this.cityName = res.timezone;
     });
   }
 
   ngOnDestroy() {
-    // this.subs$.unsubscribe();
+    this.subs$.unsubscribe();
   }
 
 }

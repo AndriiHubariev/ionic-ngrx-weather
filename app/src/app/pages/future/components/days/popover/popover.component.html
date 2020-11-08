@@ -1,0 +1,39 @@
+<!-- <div [ngClass]="day.weather[0].main"class="popover_wrapper"> -->
+<div class="card_content">
+  <div class="card_info">
+    <div class="main-info">
+      <div class="city_temp">
+       {{ day.temp.day | number: '1.0-0' }}&#176;
+      </div>
+      <small>dey temp</small> 
+      <div class="date">
+        {{day.dt | date: 'MMM d' : 'UTC'}}
+      </div>
+    </div>
+    <div class="second_info">
+      <div class="left">
+        <div class="pressure">PR {{ day.pressure }}<small>-hPa</small></div>
+        <div class="humidity">
+          <i class="fas fa-tint"></i> {{ day.humidity }}&#37;
+        </div>
+        <div class="wind">
+          <i class="fas fa-wind"></i>
+          {{ day.wind_speed | number: '1.0-0' }}<small>-m/s</small>
+        </div>
+      </div>
+      <div class="right">
+        <div class="sunrize">
+          <i class="fas fa-long-arrow-alt-up"></i><i class="fas fa-sun"></i>
+          {{ day.sunrise | date:'HH:mm': 'UTC' }}
+        </div>
+        <div class="sunset">
+          <i class="fas fa-long-arrow-alt-down"></i><i class="fas fa-sun"></i>
+          {{ day.sunset | date:'HH:mm': 'UTC' }}
+        </div>
+        <div class="uvi">UVI {{day.uvi}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="card_text">
+  </div>
+</div>

@@ -9,5 +9,6 @@ export interface FutureStateInterface {
         maxTemp: number[] | [];
         pressure: number[] | [];
         humidity: number[] | [];
+        wind: number[] | [];
     };
 }

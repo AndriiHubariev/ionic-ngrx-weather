@@ -13,15 +13,13 @@ import {FutureStateInterface} from '../../../store/types/futureState.interface';
 })
 export class TempChartComponent implements OnInit, OnDestroy {
   private subs$: Subscription;
-  futureData: FutureStateInterface;
   public tempChart: Chart = [];
   constructor(private store: Store) {}
 
   ngOnInit() {
     this.subs$ = this.store
       .pipe(select(FutureFutureSelector))
-      .subscribe((data) => {
-        this.futureData = data;
+      .subscribe((data: FutureStateInterface) => {
 
         if (this.tempChart.canvas) {
           this.tempChart.destroy();
@@ -31,11 +29,11 @@ export class TempChartComponent implements OnInit, OnDestroy {
         this.tempChart = new Chart('temp_chart', {
           type: 'line',
           data: {
-            labels: this.futureData.data.dates,
+            labels: data.data.dates,
             datasets: [
               {
                 label: 'max temp',
-                data: this.futureData.data.maxTemp,
+                data: data.data.maxTemp,
                 borderColor: ['rgb(247, 62, 62, .4)'],
                 borderWidth: 3,
                 radius: 2,
@@ -44,7 +42,7 @@ export class TempChartComponent implements OnInit, OnDestroy {
               },
               {
                 label: 'min temp',
-                data: this.futureData.data.minTemp,
+                data: data.data.minTemp,
                 borderColor: ['rgb(37, 37, 245, .4)'],
                 borderWidth: 3,
                 radius: 2,
@@ -65,11 +63,11 @@ export class TempChartComponent implements OnInit, OnDestroy {
                   gridLines: {
                     display: false
                   },
-                  ticks: {
-                    min: -20,
-                    max: 40,
-                    stepSize: 10,
-                  },
+                  // ticks: {
+                  //   min: -20,
+                  //   max: 40,
+                  //   stepSize: 10,
+                  // },
                 },
               ],
               xAxes: [

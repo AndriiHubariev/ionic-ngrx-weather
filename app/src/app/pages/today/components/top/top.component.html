@@ -6,6 +6,7 @@
       <div class="city_temp">
         {{ weatherData.temp | number: '1.0-0' }}&#176;
       </div>
+       <small>time ( {{weatherData.dt| date: 'hh:mm': 'UTC'}} )</small>
       <div class="city_name">
         <span class="name">{{ cityName }}</span>
         <app-dynamicIcon [weatherState]="weatherData.weather[0].main"></app-dynamicIcon>

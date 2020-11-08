@@ -1,0 +1,7 @@
+.hum_chart {
+    position: relative;
+    height: 250px;
+    @media (min-height: 812px) {
+        height: 300px;
+    }
+}

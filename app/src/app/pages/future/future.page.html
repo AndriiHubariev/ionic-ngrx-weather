@@ -1,13 +1,17 @@
 
 <ion-content>
     <div class="charts">
+      <small class="cityName">{{cityName}}</small>
         <div class="chart temp_chart">
           <app-tempChart></app-tempChart>
         </div>
-        <div class=" days_chart">
+        <div class="days_chart">
           <div class="days_chart_inner">
             <app-daysChart></app-daysChart>
           </div>
-        </div>  
+        </div>
+        <div class="slides">
+          <app-slides-component></app-slides-component>
+        </div>
     </div>
 </ion-content>

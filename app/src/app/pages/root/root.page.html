@@ -13,12 +13,11 @@
         <ion-icon color="light" name="ellipsis-horizontal-outline"></ion-icon>
       </ion-menu-button>
     </ion-buttons>
-      <ion-segment value="all">
+      <ion-segment #seg [value]="segment">
         <ion-segment-button
-        value="/"
+           value="/"
           [routerLink]="['/']"
           routerDirection="back"
-          value="all"
         >
         <ion-tab-button tab="/"></ion-tab-button>
           <ion-label>Today</ion-label>
